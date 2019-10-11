@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xzy.rxjava2demo.basic.Basic;
+import com.xzy.rxjava2demo.operations.Just;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,5 +16,8 @@ public class MainActivity extends AppCompatActivity {
         // RxJava2 基本用法
         Basic basic = new Basic();
         basic.toScribe();
+        // just
+        Just just = new Just();
+        just.testJust();
     }
 }
