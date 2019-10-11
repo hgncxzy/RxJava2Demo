@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xzy.rxjava2demo.basic.Basic;
+import com.xzy.rxjava2demo.operations.FlatMap;
 import com.xzy.rxjava2demo.operations.FromArray;
 import com.xzy.rxjava2demo.operations.Interval;
 import com.xzy.rxjava2demo.operations.Just;
+import com.xzy.rxjava2demo.operations.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +29,11 @@ public class MainActivity extends AppCompatActivity {
         // interval
         Interval interval = new Interval();
         interval.testInterval();
+        // map
+        Map map = new Map();
+        map.testMap();
+        // flatMap
+        FlatMap flatMap = new FlatMap();
+        flatMap.testFlatMap();
     }
 }
