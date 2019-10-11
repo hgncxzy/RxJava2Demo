@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.xzy.rxjava2demo.basic.Basic;
 import com.xzy.rxjava2demo.operations.FromArray;
+import com.xzy.rxjava2demo.operations.Interval;
 import com.xzy.rxjava2demo.operations.Just;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,5 +24,8 @@ public class MainActivity extends AppCompatActivity {
         // fromArray
         FromArray fromArray = new FromArray();
         fromArray.testFromArray();
+        // interval
+        Interval interval = new Interval();
+        interval.testInterval();
     }
 }
