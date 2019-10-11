@@ -15,15 +15,15 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
 /**
- * flatMap 操作符的用法
- * flatMap 的操作符是将 Observable 发射的数据集合变成一个 Observable 集合。
- * 也就是说它可以将一个观察对象变换成多个观察对象，但是并不能保证事件的顺序。
+ * concatMap 操作符的用法。
+ * concatMap 的操作符是将Observable发射的数据集合变成一个 Observable 集合。
+ * 也就是说它可以将一个观察对象变换成多个观察对象，并且能保证事件的顺序。
  */
-public class FlatMap {
-    private static final String TAG = "FlatMap";
+public class ConcatMap {
+    private static final String TAG = "ConcatMap";
 
     @SuppressLint("CheckResult")
-    public void testFlatMap() {
+    public void testConcatMap() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) {
@@ -31,7 +31,7 @@ public class FlatMap {
                 emitter.onNext(2);
                 emitter.onNext(3);
             }
-        }).flatMap(new Function<Integer, ObservableSource<String>>() {
+        }).concatMap(new Function<Integer, ObservableSource<String>>() {
             @Override
             public ObservableSource<String> apply(Integer integer) {
                 final List<String> list = new ArrayList<>();

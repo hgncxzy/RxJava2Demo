@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xzy.rxjava2demo.basic.Basic;
+import com.xzy.rxjava2demo.operations.Compose;
+import com.xzy.rxjava2demo.operations.ConcatMap;
 import com.xzy.rxjava2demo.operations.FlatMap;
 import com.xzy.rxjava2demo.operations.FromArray;
 import com.xzy.rxjava2demo.operations.Interval;
@@ -35,5 +37,11 @@ public class MainActivity extends AppCompatActivity {
         // flatMap
         FlatMap flatMap = new FlatMap();
         flatMap.testFlatMap();
+        // concatMap
+        ConcatMap concatMap = new ConcatMap();
+        concatMap.testConcatMap();
+        // compose
+        Compose compose = new Compose();
+        compose.testCompose();
     }
 }
