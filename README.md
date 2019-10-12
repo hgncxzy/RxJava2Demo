@@ -3,7 +3,19 @@
 
 关于 RxJava2 用法的简单例子。主要涉及基本调用方式、操作符、线程控制、与 Retrofit 配合使用、 异常流的处理。
 
+### 依赖
+
+```groovy
+ // 引入 RxJava2
+ implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
+ implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+```
+
+
+
 ### 一句话总结常用操作符
+
+具体例子的返回值可以看源代码或者[这里](https://juejin.im/post/5a43a842f265da432d2863ab#heading-9)
 
 #### 创建操作符
 
