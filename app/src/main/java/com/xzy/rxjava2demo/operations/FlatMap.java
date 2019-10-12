@@ -38,9 +38,8 @@ public class FlatMap {
                 for (int i = 0; i < 3; i++) {
                     list.add("I am value " + integer + "\n");
                 }
-                // 延迟 1 秒，方便观察结果
-                return Observable.fromIterable(list).delay(1000, TimeUnit.MILLISECONDS);
-//                return Observable.fromIterable(list);
+                Log.i(TAG, "list.size = " + list.size());
+                return Observable.fromIterable(list);
             }
         }).subscribe(new Consumer<String>() {
             @Override

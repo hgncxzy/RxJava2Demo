@@ -5,13 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xzy.rxjava2demo.basic.Basic;
+import com.xzy.rxjava2demo.operations.Buffer;
 import com.xzy.rxjava2demo.operations.Compose;
+import com.xzy.rxjava2demo.operations.Concat;
+import com.xzy.rxjava2demo.operations.ConcatEager;
 import com.xzy.rxjava2demo.operations.ConcatMap;
+import com.xzy.rxjava2demo.operations.Distinct;
+import com.xzy.rxjava2demo.operations.Filter;
 import com.xzy.rxjava2demo.operations.FlatMap;
 import com.xzy.rxjava2demo.operations.FromArray;
 import com.xzy.rxjava2demo.operations.Interval;
 import com.xzy.rxjava2demo.operations.Just;
 import com.xzy.rxjava2demo.operations.Map;
+import com.xzy.rxjava2demo.operations.Merge;
+import com.xzy.rxjava2demo.operations.Skip;
+import com.xzy.rxjava2demo.operations.Take;
+import com.xzy.rxjava2demo.operations.Zip;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,5 +52,32 @@ public class MainActivity extends AppCompatActivity {
         // compose
         Compose compose = new Compose();
         compose.testCompose();
+        // filter
+        Filter filter = new Filter();
+        filter.testFilter();
+        // distinct
+        Distinct distinct = new Distinct();
+        distinct.testDistinct();
+        // buffer
+        Buffer buffer = new Buffer();
+        buffer.testBuffer();
+        // skip
+        Skip skip = new Skip();
+        skip.testSkip();
+        // take
+        Take take = new Take();
+        take.testTake();
+        // merge
+        Merge merge = new Merge();
+        merge.testMerge();
+        // concat
+        Concat concat = new Concat();
+        concat.testConcat();
+        // zip
+        Zip zip = new Zip();
+        zip.testZip();
+        // concatEager
+        ConcatEager concatEager = new ConcatEager();
+        concatEager.testConcatEager();
     }
 }
