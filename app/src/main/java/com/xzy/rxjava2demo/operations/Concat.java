@@ -8,8 +8,8 @@ import io.reactivex.functions.Consumer;
 
 /**
  * concat 操作符
- * 将多个Observable发射的数据进行合并并且发射，
- * 和merge不同的是，merge是无序的，而concat是有序的。（串行有序）没有发射完前一个它一定不会发送后一个。
+ * 将多个 Observable 发射的数据进行合并并且发射，
+ * 和merge 不同的是，merge 是无序的，而 concat 是有序的。（串行有序）没有发射完前一个它一定不会发送后一个。
  */
 public class Concat {
     private static final String TAG = "Concat";

@@ -11,8 +11,8 @@ import io.reactivex.functions.Function;
 
 /**
  * map 操作符的用法
- * map操作符通过指定一个Function对象，将Observable转换为一个新的Observable对象并发射，
- * 观察者将收到新的Observable处理。
+ * map 操作符通过指定一个 Function 对象，将 Observable 转换为一个新的 Observable 对象并发射，
+ * 观察者将收到新的 Observable 并处理。
  */
 public class Map {
     private static final String TAG = "Map";

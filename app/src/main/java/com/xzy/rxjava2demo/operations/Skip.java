@@ -8,8 +8,8 @@ import io.reactivex.functions.Consumer;
 
 /**
  * skip 操作符
- * skip操作符将源Observable发射过的数据过滤掉前n项，而take操作则只取前n项；
- * 另外还有skipLast和takeLast则是从后往前进行过滤。先来看看skip操作符。
+ * skip 操作符将源 Observable 发射过的数据过滤掉前 n 项，而 take 操作则只取前 n 项；
+ * 另外还有 skipLast 和 takeLast 则是从后往前进行过滤。
  */
 public class Skip {
     private static final String TAG = "Skip";

@@ -9,7 +9,7 @@ import io.reactivex.functions.Consumer;
 
 /**
  * zip 操作符
- * 此操作符和合并多个Observable发送的数据项，根据他们的类型进行重新变换，并发射一个新的值。
+ * 此操作符可合并多个 Observable 发送的数据项，根据他们的类型进行重新变换，并发射一个新的值。
  */
 public class Zip {
     private static final String TAG = "Zip";

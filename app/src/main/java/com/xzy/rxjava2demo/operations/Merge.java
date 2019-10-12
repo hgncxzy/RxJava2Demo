@@ -8,8 +8,8 @@ import io.reactivex.functions.Consumer;
 
 /**
  * merge 操作符
- * merge是将多个操作符合并到一个Observable中进行发射，
- * merge可能让合并到Observable的数据发生错乱。（并行无序）
+ * merge 是将多个操作符合并到一个 Observable 中进行发射，
+ * merge 可能让合并到 Observable 的数据发生错乱。（并行无序）
  */
 public class Merge {
     private static final String TAG = "Merge";

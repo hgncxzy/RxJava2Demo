@@ -10,7 +10,7 @@ import io.reactivex.functions.Consumer;
 
 /**
  * concatEager 操作符
- * 前面说道 concat 串行有序，而 concatEager 则是并行且有序
+ * 前面说到 concat 串行有序，而 concatEager 则是并行且有序
  */
 public class ConcatEager {
     private static final String TAG = "ConcatEager";
