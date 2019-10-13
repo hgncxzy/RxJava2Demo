@@ -131,6 +131,10 @@ Observable.just(1, 2, 3, 4) // IO 线程，由 subscribeOn() 指定
 
 // todo
 
+### Retrofit + RxJava
+
+1. [使用 Retrofit+RxJava 实现网络请求](https://www.jianshu.com/p/092452f287db)
+
 ### 遇到的问题
 
 1. flatMap 执行次数的问题
