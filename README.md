@@ -132,7 +132,8 @@ Observable.just(1, 2, 3, 4) // IO 线程，由 subscribeOn() 指定
 
 ### Retrofit + RxJava
 
-1. [使用 Retrofit+RxJava 实现网络请求](https://www.jianshu.com/p/092452f287db)
+1. 源码 - [RxJava2 + Retrofit](https://github.com/hgncxzy/RxJava2RetrofitDemo)
+2. 文档 - [使用 Retrofit+RxJava 实现网络请求](https://www.jianshu.com/p/092452f287db)
 
 ### 遇到的问题
 
