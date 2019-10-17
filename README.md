@@ -144,5 +144,5 @@ Observable.just(1, 2, 3, 4) // IO 线程，由 subscribeOn() 指定
 ### 参考
 
 1. [RxJava2 全面解析](https://juejin.im/post/5a43a842f265da432d2863ab)
-2. 
+2. [简单&全面背压讲解](https://www.jianshu.com/p/d814e04673ea>)
 
