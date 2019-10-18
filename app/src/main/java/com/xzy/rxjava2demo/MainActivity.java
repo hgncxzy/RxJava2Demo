@@ -1,8 +1,8 @@
 package com.xzy.rxjava2demo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.xzy.rxjava2demo.basic.Basic;
 import com.xzy.rxjava2demo.operations.Buffer;
@@ -22,6 +22,9 @@ import com.xzy.rxjava2demo.operations.Skip;
 import com.xzy.rxjava2demo.operations.Take;
 import com.xzy.rxjava2demo.operations.Zip;
 
+/**
+ * test RxJava2
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
