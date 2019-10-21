@@ -5,6 +5,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.xzy.rxjava2demo.basic.Basic;
+import com.xzy.rxjava2demo.error.OnErrorResumeNext;
+import com.xzy.rxjava2demo.error.OnErrorReturn;
+import com.xzy.rxjava2demo.error.OnExceptionResumeNext;
+import com.xzy.rxjava2demo.error.Retry;
+import com.xzy.rxjava2demo.error.RetryWhen;
 import com.xzy.rxjava2demo.operations.Buffer;
 import com.xzy.rxjava2demo.operations.Compose;
 import com.xzy.rxjava2demo.operations.Concat;
@@ -82,5 +87,15 @@ public class MainActivity extends AppCompatActivity {
         // concatEager
         ConcatEager concatEager = new ConcatEager();
         concatEager.testConcatEager();
+        // onErrorReturn
+        new OnErrorReturn();
+        // onErrorResumeNext
+        new OnErrorResumeNext();
+        // onExceptionResumeNext
+        new OnExceptionResumeNext();
+        // retry
+        new Retry();
+        // retryWhen
+        new RetryWhen();
     }
 }
