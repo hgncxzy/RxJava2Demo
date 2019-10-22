@@ -8,10 +8,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
-import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
 /**
@@ -24,29 +22,18 @@ public class ConcatMap {
 
     @SuppressLint("CheckResult")
     public void testConcatMap() {
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) {
-                emitter.onNext(1);
-                emitter.onNext(2);
-                emitter.onNext(3);
+        Observable.create((ObservableOnSubscribe<Integer>) emitter -> {
+            emitter.onNext(1);
+            emitter.onNext(2);
+            emitter.onNext(3);
+        }).concatMap((Function<Integer, ObservableSource<String>>) integer -> {
+            final List<String> list = new ArrayList<>();
+            for (int i = 0; i < 3; i++) {
+                list.add("I am value " + integer + "\n");
             }
-        }).concatMap(new Function<Integer, ObservableSource<String>>() {
-            @Override
-            public ObservableSource<String> apply(Integer integer) {
-                final List<String> list = new ArrayList<>();
-                for (int i = 0; i < 3; i++) {
-                    list.add("I am value " + integer + "\n");
-                }
-                // 延迟 1 秒，方便观察结果
-                return Observable.fromIterable(list).delay(1000, TimeUnit.MILLISECONDS);
+            // 延迟 1 秒，方便观察结果
+            return Observable.fromIterable(list).delay(1000, TimeUnit.MILLISECONDS);
 //                return Observable.fromIterable(list);
-            }
-        }).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                Log.i(TAG, "accept: " + s);
-            }
-        });
+        }).subscribe(s -> Log.i(TAG, "accept: " + s));
     }
 }

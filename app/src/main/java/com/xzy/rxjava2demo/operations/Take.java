@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 
 /**
  * take 字符串
@@ -18,11 +17,6 @@ public class Take {
     public void testTake() {
         Observable.just(1, 2, 3, 4, 5, 6)
                 .take(3)
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer strings) {
-                        Log.i(TAG, "accept: " + strings);
-                    }
-                });
+                .subscribe(strings -> Log.i(TAG, "accept: " + strings));
     }
 }

@@ -21,11 +21,6 @@ public class ConcatEager {
         Observable<String> observable2 = Observable.just("a", "b", "c");
         Observable
                 .concatEager(Observable.fromArray(observable1, observable2))
-                .subscribe(new Consumer<Serializable>() {
-                    @Override
-                    public void accept(Serializable serializable) {
-                        Log.i(TAG, "accept: " + serializable);
-                    }
-                });
+                .subscribe((Consumer<Serializable>) serializable -> Log.i(TAG, "accept: " + serializable));
     }
 }

@@ -19,25 +19,16 @@ public class Compose {
     private static final String TAG = "Compose";
 
     private <T> ObservableTransformer<T, T> applyObservableAsync() {
-        return new ObservableTransformer<T, T>() {
-            @Override
-            public ObservableSource<T> apply(Observable<T> upstream) {
-                return upstream
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread());
-            }
-        };
+        return upstream -> upstream
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @SuppressLint("CheckResult")
     public void testCompose() {
-        Observable.just(1, 2, 3, 4, 5, 6)
-                .compose(this.<Integer>applyObservableAsync())
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer strings) {
-                        Log.i(TAG, "accept: " + strings);
-                    }
-                });
+        Observable
+                .just(1, 2, 3, 4, 5, 6)
+                .compose(this.applyObservableAsync())
+                .subscribe(strings -> Log.i(TAG, "accept: " + strings));
     }
 }

@@ -3,10 +3,8 @@ package com.xzy.rxjava2demo.operations;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
-import java.util.List;
-
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
+
 
 /**
  * buffer 操作符
@@ -20,14 +18,11 @@ public class Buffer {
     public void testBuffer() {
         Observable.just(1, 2, 3, 4, 5, 6)
                 .buffer(2) // 每次缓存 2 个
-                .subscribe(new Consumer<List<Integer>>() {
-                    @Override
-                    public void accept(List<Integer> strings) {
-                        for (Integer integer : strings) {
-                            Log.i(TAG, "accept: " + integer);
-                        }
-                        Log.i(TAG, "accept: ----------------------->");
+                .subscribe(strings -> {
+                    for (Integer integer : strings) {
+                        Log.i(TAG, "accept: " + integer);
                     }
+                    Log.i(TAG, "accept: ----------------------->");
                 });
     }
 }

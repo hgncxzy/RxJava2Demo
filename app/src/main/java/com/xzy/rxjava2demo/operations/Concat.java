@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 
 /**
  * concat 操作符
@@ -20,11 +19,6 @@ public class Concat {
         Observable<Integer> observable2 = Observable.just(4, 5, 6);
         Observable
                 .concat(observable1, observable2)
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) {
-                        Log.i(TAG, "accept: " + integer);
-                    }
-                });
+                .subscribe(integer -> Log.i(TAG, "accept: " + integer));
     }
 }

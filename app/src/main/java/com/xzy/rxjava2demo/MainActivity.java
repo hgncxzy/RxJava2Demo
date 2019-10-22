@@ -28,11 +28,14 @@ import com.xzy.rxjava2demo.operations.Skip;
 import com.xzy.rxjava2demo.operations.Take;
 import com.xzy.rxjava2demo.operations.Zip;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+
 /**
  * test RxJava2
  */
 public class MainActivity extends AppCompatActivity {
-
+    public static CompositeDisposable compositeDisposable = new CompositeDisposable();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

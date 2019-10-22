@@ -6,7 +6,6 @@ import android.util.Log;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 
 /**
  * interval 操作符的用法
@@ -18,11 +17,6 @@ public class Interval {
     @SuppressLint("CheckResult")
     public void testInterval() {
         Observable.interval(2, TimeUnit.SECONDS) // 每隔 2 秒执行一次
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) {
-                        Log.i(TAG, "accept: " + aLong.intValue());
-                    }
-                });
+                .subscribe(aLong -> Log.i(TAG, "accept: " + aLong.intValue()));
     }
 }

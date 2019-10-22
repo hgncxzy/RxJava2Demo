@@ -11,6 +11,8 @@ import io.reactivex.Flowable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
+import static com.xzy.rxjava2demo.MainActivity.compositeDisposable;
+
 /**
  * retryWhen 操作符响应 onError 事件，也就是说当触发了 onError 事件之后，才会触发 retryWhen 事件
  */
@@ -19,45 +21,20 @@ public class RetryWhen {
 
     @SuppressLint("CheckResult")
     public RetryWhen() {
-        Flowable.just(1)
-                .delay(2, TimeUnit.SECONDS)
-                .doOnNext(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) throws Exception {
-                        Log.i(TAG, "value:" + integer);
-                        throw new Exception();
-                    }
-                })
-                .doOnError(new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Log.e(TAG, "throwable:" + throwable.getMessage());
-                    }
-                })
-                .retryWhen(new Function<Flowable<Throwable>, Publisher<?>>() {
-                    @Override
-                    public Publisher<?> apply(Flowable<Throwable> throwableFlowable) throws Exception {
-                        Log.i(TAG, "retryWhen:");
-                        return throwableFlowable.delay(2, TimeUnit.SECONDS);
-                    }
-                })
-                .doOnNext(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) throws Exception {
-                        Log.i(TAG, "value2:" + integer);
-                    }
-                })
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) throws Exception {
-                        Log.i(TAG,"value2:"+integer);
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Log.e(TAG, "捕获异常");
-                    }
-                });
+        compositeDisposable
+                .add(Flowable.just(1)
+                        .delay(2, TimeUnit.SECONDS)
+                        .doOnNext(integer -> {
+                            Log.i(TAG, "value:" + integer);
+                            throw new Exception();
+                        })
+                        .doOnError(throwable -> Log.e(TAG, "throwable:" + throwable.getMessage()))
+                        .retryWhen(throwableFlowable -> {
+                            Log.i(TAG, "retryWhen:");
+                            return throwableFlowable.delay(2, TimeUnit.SECONDS);
+                        })
+                        .doOnNext(integer -> Log.i(TAG, "value2:" + integer))
+                        .subscribe(integer -> Log.i(TAG, "value2:" + integer), throwable -> Log.e(TAG, "捕获异常")));
         /**
          * 打印结果：retryWhen 事件打印一次，其余循环打印
          *

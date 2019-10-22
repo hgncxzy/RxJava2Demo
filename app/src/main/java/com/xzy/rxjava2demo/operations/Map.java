@@ -4,10 +4,7 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 
 /**
  * map 操作符的用法
@@ -22,24 +19,14 @@ public class Map {
      */
     @SuppressLint("CheckResult")
     public void testMap() {
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) {
-                emitter.onNext(1);
-                emitter.onNext(2);
-                emitter.onNext(3);
-                emitter.onNext(4);
-            }
-        }).map(new Function<Integer, String>() {
-            @Override
-            public String apply(Integer integer) {
-                return "This is result " + integer + "\n";
-            }
-        }).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String str) {
-                Log.i(TAG, "accept: " + str);
-            }
-        });
+        Observable
+                .create((ObservableOnSubscribe<Integer>) emitter -> {
+                    emitter.onNext(1);
+                    emitter.onNext(2);
+                    emitter.onNext(3);
+                    emitter.onNext(4);
+                })
+                .map(integer -> "This is result " + integer + "\n")
+                .subscribe(str -> Log.i(TAG, "accept: " + str));
     }
 }

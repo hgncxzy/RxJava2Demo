@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Consumer;
 
 /**
  * zip 操作符
@@ -19,18 +17,7 @@ public class Zip {
         Observable<Integer> observable1 = Observable.just(1, 2, 3);
         Observable<String> observable2 = Observable.just("a", "b", "c");
         Observable
-                .zip(observable1, observable2, new BiFunction<Integer, String, String>() {
-
-                    @Override
-                    public String apply(Integer integer, String s) {
-                        return integer + s;
-                    }
-                })
-                .subscribe(new Consumer<String>() {
-                    @Override
-                    public void accept(String s) {
-                        Log.i(TAG, "apply: " + s);
-                    }
-                });
+                .zip(observable1, observable2, (integer, s) -> integer + s)
+                .subscribe(s -> Log.i(TAG, "apply: " + s));
     }
 }

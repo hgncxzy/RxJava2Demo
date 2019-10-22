@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 
 /**
  * skip 操作符
@@ -18,11 +17,6 @@ public class Skip {
     public void testSkip() {
         Observable.just(1, 2, 3, 4, 5, 6)
                 .skip(2)
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer strings) {
-                        Log.i(TAG, "accept: " + strings);
-                    }
-                });
+                .subscribe(strings -> Log.i(TAG, "accept: " + strings));
     }
 }

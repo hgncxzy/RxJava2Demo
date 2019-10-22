@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Predicate;
 
 /**
  * filter 操作符
@@ -18,17 +16,7 @@ public class Filter {
     public void testFilter() {
         Observable
                 .just(1, 2, 3)
-                .filter(new Predicate<Integer>() {
-                    @Override
-                    public boolean test(Integer integer) {
-                        return integer < 3;
-                    }
-                })
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer s) {
-                        Log.i(TAG, "accept: " + s);
-                    }
-                });
+                .filter(integer -> integer < 3)
+                .subscribe(s -> Log.i(TAG, "accept: " + s));
     }
 }

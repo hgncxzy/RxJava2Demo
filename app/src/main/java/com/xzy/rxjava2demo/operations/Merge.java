@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 
 /**
  * merge 操作符
@@ -19,11 +18,6 @@ public class Merge {
         Observable<Integer> observable1 = Observable.just(1, 2, 3);
         Observable<Integer> observable2 = Observable.just(1, 2, 3);
         Observable.merge(observable1, observable2)
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) {
-                        Log.i(TAG, "accept: " + integer);
-                    }
-                });
+                .subscribe(integer -> Log.i(TAG, "accept: " + integer));
     }
 }

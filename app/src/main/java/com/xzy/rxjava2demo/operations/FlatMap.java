@@ -5,13 +5,11 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Objects;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
-import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
 /**
@@ -24,28 +22,21 @@ public class FlatMap {
 
     @SuppressLint("CheckResult")
     public void testFlatMap() {
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) {
-                emitter.onNext(1);
-                emitter.onNext(2);
-                emitter.onNext(3);
-            }
-        }).flatMap(new Function<Integer, ObservableSource<String>>() {
-            @Override
-            public ObservableSource<String> apply(Integer integer) {
-                final List<String> list = new ArrayList<>();
-                for (int i = 0; i < 3; i++) {
-                    list.add("I am value " + integer + "\n");
-                }
-                Log.i(TAG, "list.size = " + list.size());
-                return Observable.fromIterable(list);
-            }
-        }).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                Log.i(TAG, "accept: " + s);
-            }
-        });
+        Observable
+                .create((ObservableOnSubscribe<Integer>) emitter -> {
+                    emitter.onNext(1);
+                    emitter.onNext(2);
+                    emitter.onNext(3);
+                })
+                .flatMap((Function<Integer, ObservableSource<String>>) integer -> {
+                    final List<String> list = new ArrayList<>();
+                    for (int i = 0; i < 3; i++) {
+                        list.add("I am value " + integer + "\n");
+                    }
+                    Log.i(TAG, "list.size = " + list.size());
+                    return Observable.fromIterable(list);
+                })
+                .subscribe(s -> Log.i(TAG, "accept: " + s)
+                        , throwable -> Log.e(TAG, Objects.requireNonNull(throwable.getMessage())));
     }
 }

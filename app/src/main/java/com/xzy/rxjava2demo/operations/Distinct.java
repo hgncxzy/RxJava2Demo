@@ -18,11 +18,6 @@ public class Distinct {
     public void testDistinct() {
         Observable.just(1, 2, 3, 4, 2, 3, 5, 6, 1, 3)
                 .distinct()
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer s) {
-                        Log.i(TAG, "accept: " + s);
-                    }
-                });
+                .subscribe(s -> Log.i(TAG, "accept: " + s));
     }
 }
