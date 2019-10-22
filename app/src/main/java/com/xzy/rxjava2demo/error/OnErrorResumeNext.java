@@ -5,7 +5,6 @@ import android.util.Log;
 import java.util.Objects;
 
 import io.reactivex.Flowable;
-import io.reactivex.disposables.Disposable;
 
 import static com.xzy.rxjava2demo.MainActivity.compositeDisposable;
 

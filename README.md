@@ -128,7 +128,29 @@ Observable.just(1, 2, 3, 4) // IO 线程，由 subscribeOn() 指定
 
 ### 异常/错误处理
 
-// todo
+1. onErrorReturn 
+
+   OnErrorReturn 操作符响应 onError 事件。
+
+2. onErrorResumeNext
+
+   onErrorResumeNext 响应 onError 事件,并返回新的 Observable，防止流中断。
+
+3. onExceptionrResumeNext
+
+   触发 onExceptionResumeNext 的是源 Observable 发生了异常（Exception）如果源 Observable 发生了错误仍然像默认情况一样调用 Observer 的 onError 方法。
+
+4. repeatWhen
+
+   repeatWhen 操作符不会响应 onError 事件，也就是说遇到 onError 事件时，不会重复。repeatWhen 只会响应 onCompleted 事件。
+
+5. retry
+
+   retry 只对 onError 事件起作用。对 onCompleted 事件不起作用。
+
+6. retryWhen
+
+   同 retry，retryWhen 操作符响应 onError 事件，也就是说当触发了 onError 事件之后，才会触发 retryWhen 事件。
 
 ### Retrofit + RxJava
 
@@ -145,4 +167,5 @@ Observable.just(1, 2, 3, 4) // IO 线程，由 subscribeOn() 指定
 
 1. [RxJava2 全面解析](https://juejin.im/post/5a43a842f265da432d2863ab)
 2. [简单&全面背压讲解](https://www.jianshu.com/p/d814e04673ea>)
+3. [RxJava 操作符-错误处理](https://www.jianshu.com/p/5bb3e55a14c4)
 

@@ -1,12 +1,10 @@
 package com.xzy.rxjava2demo.error;
 
-import android.annotation.SuppressLint;
 import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
-import io.reactivex.functions.Consumer;
 
 import static com.xzy.rxjava2demo.MainActivity.compositeDisposable;
 
