@@ -8,6 +8,7 @@ import com.xzy.rxjava2demo.basic.Basic;
 import com.xzy.rxjava2demo.error.OnErrorResumeNext;
 import com.xzy.rxjava2demo.error.OnErrorReturn;
 import com.xzy.rxjava2demo.error.OnExceptionResumeNext;
+import com.xzy.rxjava2demo.error.RepeatWhen;
 import com.xzy.rxjava2demo.error.Retry;
 import com.xzy.rxjava2demo.error.RetryWhen;
 import com.xzy.rxjava2demo.operations.Buffer;
@@ -97,5 +98,7 @@ public class MainActivity extends AppCompatActivity {
         new Retry();
         // retryWhen
         new RetryWhen();
+        // repeatWhen
+        new RepeatWhen();
     }
 }
