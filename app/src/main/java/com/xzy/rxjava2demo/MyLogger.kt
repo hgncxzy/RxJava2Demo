@@ -1,6 +1,4 @@
-/*
- * Copyright 2015-2020 Hive Box.
- */
+
 package com.xzy.rxjava2demo
 
 import android.os.Handler
