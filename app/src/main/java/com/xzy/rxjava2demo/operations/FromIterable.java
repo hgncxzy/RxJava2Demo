@@ -4,21 +4,22 @@ import android.util.Log;
 
 import com.xzy.rxjava2demo.MyLogger;
 
+
+import java.util.Arrays;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 /**
- * just 操作符的用法
- * <p>
- * 此操作符是将传入的参数依次发出来.
- * @author xzy
+ * @author ：created by xzy.
+ * @date ：2020/7/8
  */
-public class Just {
-    private static final String TAG = "Just";
+public class FromIterable {
+    private static final String TAG = "FromIterable";
 
-    public void testJust() {
-        Observable<String> observable = Observable.just("Hello", "RxJava2", "My name is XZY", "What's your name");
+    public void testFromIterable() {
+        String[] words = {"Hello", "Rxjava2", "My name is Silence", "What's your name"};
+        Observable<String> observable = Observable.fromIterable(Arrays.asList(words));
         // 将会依次调用：
         // onNext("Hello");
         // onNext("Rxjava2");
@@ -52,6 +53,5 @@ public class Just {
         };
 
         observable.subscribe(observer);
-
     }
 }

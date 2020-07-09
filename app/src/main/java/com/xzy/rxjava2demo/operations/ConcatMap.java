@@ -3,6 +3,8 @@ package com.xzy.rxjava2demo.operations;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.xzy.rxjava2demo.MyLogger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -16,6 +18,8 @@ import io.reactivex.functions.Function;
  * concatMap 操作符的用法。
  * concatMap 的操作符是将Observable发射的数据集合变成一个 Observable 集合。
  * 也就是说它可以将一个观察对象变换成多个观察对象，并且能保证事件的顺序。
+ *
+ * @author xzy
  */
 public class ConcatMap {
     private static final String TAG = "ConcatMap";
@@ -26,14 +30,20 @@ public class ConcatMap {
             emitter.onNext(1);
             emitter.onNext(2);
             emitter.onNext(3);
+            MyLogger.INSTANCE.d(TAG, "emitter: " + emitter.toString());
         }).concatMap((Function<Integer, ObservableSource<String>>) integer -> {
             final List<String> list = new ArrayList<>();
             for (int i = 0; i < 3; i++) {
                 list.add("I am value " + integer + "\n");
             }
+            Log.i(TAG, "list.size = " + list.size());
+            MyLogger.INSTANCE.d(TAG, "list.size = " + list.size());
             // 延迟 1 秒，方便观察结果
             return Observable.fromIterable(list).delay(1000, TimeUnit.MILLISECONDS);
 //                return Observable.fromIterable(list);
-        }).subscribe(s -> Log.i(TAG, "accept: " + s));
+        }).subscribe(s -> {
+            Log.i(TAG, "accept: " + s);
+            MyLogger.INSTANCE.d(TAG, "accept: " + s);
+        });
     }
 }

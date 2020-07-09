@@ -3,6 +3,8 @@ package com.xzy.rxjava2demo.operations;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.xzy.rxjava2demo.MyLogger;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 
@@ -10,6 +12,8 @@ import io.reactivex.ObservableOnSubscribe;
  * map 操作符的用法
  * map 操作符通过指定一个 Function 对象，将 Observable 转换为一个新的 Observable 对象并发射，
  * 观察者将收到新的 Observable 并处理。
+ *
+ * @author xzy
  */
 public class Map {
     private static final String TAG = "Map";
@@ -27,6 +31,9 @@ public class Map {
                     emitter.onNext(4);
                 })
                 .map(integer -> "This is result " + integer + "\n")
-                .subscribe(str -> Log.i(TAG, "accept: " + str));
+                .subscribe(str -> {
+                    Log.i(TAG, "accept: " + str);
+                    MyLogger.INSTANCE.d(TAG, "accept: " + str);
+                });
     }
 }

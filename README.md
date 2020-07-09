@@ -136,7 +136,7 @@ Observable.just(1, 2, 3, 4) // IO 线程，由 subscribeOn() 指定
 
    onErrorResumeNext 响应 onError 事件,并返回新的 Observable，防止流中断。
 
-3. onExceptionrResumeNext
+3. onExceptionResumeNext
 
    触发 onExceptionResumeNext 的是源 Observable 发生了异常（Exception）如果源 Observable 发生了错误仍然像默认情况一样调用 Observer 的 onError 方法。
 

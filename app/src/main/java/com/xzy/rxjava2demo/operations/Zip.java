@@ -3,6 +3,8 @@ package com.xzy.rxjava2demo.operations;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.xzy.rxjava2demo.MyLogger;
+
 import io.reactivex.Observable;
 
 /**
@@ -18,6 +20,9 @@ public class Zip {
         Observable<String> observable2 = Observable.just("a", "b", "c");
         Observable
                 .zip(observable1, observable2, (integer, s) -> integer + s)
-                .subscribe(s -> Log.i(TAG, "apply: " + s));
+                .subscribe(s -> {
+                    Log.i(TAG, "apply: " + s);
+                    MyLogger.INSTANCE.d(TAG, "apply: " + s);
+                });
     }
 }

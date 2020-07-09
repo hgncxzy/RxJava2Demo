@@ -3,17 +3,17 @@ package com.xzy.rxjava2demo.operations;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.xzy.rxjava2demo.MyLogger;
+
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
  * compose 操作符的用法
  * 把多个 Observable 转化成一个 Observable
+ * @author xzy
  */
 public class Compose {
     private static final String TAG = "Compose";
@@ -29,6 +29,9 @@ public class Compose {
         Observable
                 .just(1, 2, 3, 4, 5, 6)
                 .compose(this.applyObservableAsync())
-                .subscribe(strings -> Log.i(TAG, "accept: " + strings));
+                .subscribe(strings -> {
+                    Log.i(TAG, "accept: " + strings);
+                    MyLogger.INSTANCE.d(TAG,"accept: " + strings);
+                });
     }
 }
