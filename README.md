@@ -130,7 +130,7 @@ Observable.just(1, 2, 3, 4) // IO 线程，由 subscribeOn() 指定
 
 1. onErrorReturn 
 
-   OnErrorReturn 操作符响应 onError 事件。
+   OnErrorReturn 操作符响应 onError 事件。onErrorReturn 不能返回一个流。
 
 2. onErrorResumeNext
 

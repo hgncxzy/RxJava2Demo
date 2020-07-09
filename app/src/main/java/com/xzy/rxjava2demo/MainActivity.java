@@ -173,18 +173,39 @@ public class MainActivity extends AppCompatActivity {
             concatEager.testConcatEager();
         });
         // onErrorReturn
-
-        new OnErrorReturn();
+        findViewById(R.id.btn18).setOnClickListener(v -> {
+            clearResult();
+            new OnErrorReturn();
+        });
         // onErrorResumeNext
-        new OnErrorResumeNext();
+        findViewById(R.id.btn19).setOnClickListener(v -> {
+            clearResult();
+            new OnErrorResumeNext();
+        });
         // onExceptionResumeNext
-        new OnExceptionResumeNext();
+        findViewById(R.id.btn20).setOnClickListener(v -> {
+            clearResult();
+            new OnExceptionResumeNext();
+        });
         // retry
-        new Retry();
+        findViewById(R.id.btn21).setOnClickListener(v -> {
+            clearResult();
+            new Retry().test1();
+        });
+        findViewById(R.id.btn22).setOnClickListener(v -> {
+            clearResult();
+            new Retry().test2();
+        });
         // retryWhen
-        new RetryWhen();
+        findViewById(R.id.btn23).setOnClickListener(v -> {
+            clearResult();
+            new RetryWhen();
+        });
         // repeatWhen
-        new RepeatWhen();
+        findViewById(R.id.btn24).setOnClickListener(v -> {
+            clearResult();
+            new RepeatWhen();
+        });
     }
 
     private void initView() {
