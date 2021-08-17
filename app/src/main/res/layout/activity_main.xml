@@ -169,6 +169,13 @@
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="repeatWhen" />
+
+            <Button
+                android:id="@+id/btnX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="Test" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

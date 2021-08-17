@@ -17,6 +17,7 @@ import com.xzy.rxjava2demo.error.OnExceptionResumeNext;
 import com.xzy.rxjava2demo.error.RepeatWhen;
 import com.xzy.rxjava2demo.error.Retry;
 import com.xzy.rxjava2demo.error.RetryWhen;
+import com.xzy.rxjava2demo.functions.OnComplete;
 import com.xzy.rxjava2demo.operations.Buffer;
 import com.xzy.rxjava2demo.operations.Compose;
 import com.xzy.rxjava2demo.operations.Concat;
@@ -205,6 +206,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn24).setOnClickListener(v -> {
             clearResult();
             new RepeatWhen();
+        });
+
+        // 一般测试
+        findViewById(R.id.btnX).setOnClickListener(v -> {
+            clearResult();
+            new OnComplete();
         });
     }
 
